@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнительная таблица автомобилей премиум-класса</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #34495e;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s, transform 0.2s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "•";
+            color: #3498db;
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        
+        figure {
+            text-align: center;
+            margin: 25px 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+        
+        img:hover {
+            transform: scale(1.03);
+        }
+        
+        figcaption {
+            font-style: italic;
+            margin-top: 12px;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            padding: 0 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        tr:hover {
+            background-color: #f5f9ff;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        aside {
+            background: linear-gradient(to right, #ecf0f1, #f8f9fa);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        aside h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        details {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        details:hover {
+            border-color: #3498db;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
+        }
+        
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            padding: 5px 0;
+        }
+        
+        blockquote {
+            border-left: 5px solid #3498db;
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #555;
+            background-color: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        blockquote::before {
+            content: """;
+            font-size: 4rem;
+            color: #3498db;
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .progress-container {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .progress-container p {
+            margin-right: 15px;
+            min-width: 200px;
+            font-weight: 600;
+        }
+        
+        progress {
+            width: 100%;
+            height: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        progress::-webkit-progress-bar {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+        }
+        
+        progress::-webkit-progress-value {
+            background-color: #3498db;
+            border-radius: 10px;
+        }
+        
+        .progress-value {
+            margin-left: 15px;
+            font-weight: 700;
+            color: #2c3e50;
+            min-width: 40px;
+        }
+        
+        .mini-table {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .mini-table div {
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .brand-highlight {
+            color: #3498db;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 8px 0;
+            }
+            
+            .mini-table {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .progress-container p {
+                margin-bottom: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Сравнительная таблица автомобилей премиум-класса</h1>
+        <p class="subtitle">Подробный обзор характеристик Aston Martin, Lexus и Rolls-Royce</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#aston-martin">Aston Martin</a></li>
+            <li><a href="#lexus">Lexus</a></li>
+            <li><a href="#rolls-royce">Rolls-Royce</a></li>
+            <li><a href="#comparison">Сравнительная таблица</a></li>
+        </ul>
+    </nav>
+    
+    <section id="aston-martin">
+        <h2>Aston Martin DB11</h2>
+        
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2018_Aston_Martin_DB11_V8_Automatic_4.0.jpg/1920px-2018_Aston_Martin_DB11_V8_Automatic_4.0.jpg" alt="Aston Martin DB11">
+            <figcaption>Aston Martin DB11 - сочетание британской элегантности и невероятной мощности</figcaption>
+        </figure>
+        
+        <table>
+            <tr>
+                <th>Характеристика</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Тип двигателя</td>
+                <td>Бензиновый</td>
+            </tr>
+            <tr>
+                <td>Расход топлива</td>
+                <td>12.1 л/100 км (смешанный цикл)</td>
+            </tr>
+            <tr>
+                <td>Тип КПП</td>
+                <td>Автоматическая</td>
+            </tr>
+            <tr>
+                <td>Количество передач</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Габариты (Д×Ш×В)</td>
+                <td>4739 × 1940 × 1279 мм</td>
+            </tr>
+            <tr>
+                <td>Объем багажника</td>
+                <td>270 л</td>
+            </tr>
+            <tr>
+                <td>Разгон до 100 км/ч</td>
+                <td>3.9 с</td>
+            </tr>
+            <tr>
+                <td>Максимальная скорость</td>
+                <td>301 км/ч</td>
+            </tr>
+            <tr>
+                <td>Начальная цена</td>
+                <td>от 12 500 000 руб.</td>
+            </tr>
+            <tr>
+                <td>Гарантийный срок</td>
+                <td>3 года / неограниченный пробег</td>
+            </tr>
+        </table>
+        
+        <details>
+            <summary>Системы безопасности</summary>
+            <p>ABS, ESP, 8 подушек безопасности, система мониторинга слепых зон, адаптивный круиз-контроль, система предотвращения столкновений, камера заднего вида, система контроля давления в шинах, помощь при спуске с горы.</p>
+        </details>
+        
+        <div class="progress-container">
+            <p>Рейтинг безопасности Euro NCAP:</p>
+            <progress value="85" max="100">85%</progress>
+            <span class="progress-value">85%</span>
+        </div>
+        
+        <div class="mini-table">
+            <div>Wi-Fi: Да</div>
+            <div>Bluetooth: Да</div>
+            <div>Тормозная система: Дисковые вентилируемые</div>
+            <div>Системы предотвращения столкновений: Да</div>
+        </div>
+        
+        <aside>
+            <h3>Интересный факт</h3>
+            <p>Aston Martin DB11 стал первым автомобилем компании, построенным на новой платформе, которая впоследствии использовалась для других моделей бренда. Дизайн кузова разрабатывался с использованием технологии "аэродинамического перетекания", которая направляет воздух через специальные каналы в кузове, уменьшая аэродинамическое сопротивление и повышая прижимную силу.</p>
+        </aside>
+        
+        <blockquote>
+            "Aston Martin DB11 - это идеальное сочетание британской элегантности и невероятной мощности. Управление этим автомобилем доставляет настоящее удовольствие, а его дизайн не оставляет равнодушным. Это автомобиль, который хочется не только водить, но и просто рассматривать." - Автообозреватель журнала "Top Gear"
+        </blockquote>
+        
+        <details>
+            <summary>Дополнительная информация</summary>
+            <p>Дата выпуска модели: <time datetime="2016-03-01">март 2016</time></p>
+            <p>Объем двигателя: 5.2 л V12 с двойным турбонаддувом</p>
+            <p>Мощность: 608 л.с. при 6500 об/мин</p>
+            <p>Крутящий момент: 700 Н·м при 1500-5000 об/мин</p>
+        </details>
+    </section>
+    
+    <section id="lexus">
+        <h2>Lexus LS 500</h2>
+        
+        <figure>
+            <img src="https://hips.hearstapps.com/hmg-prod/images/2025-lexus-ls-500-f-sport-awd-101-67e30ab19aa60.jpg?crop=0.620xw:0.524xh;0.280xw,0.389xh&resize=2048:*" alt="Lexus LS 500">
+            <figcaption>Lexus LS 500 - японская роскошь и передовые технологии</figcaption>
+        </figure>
+        
+        <table>
+            <tr>
+                <th>Характеристика</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Тип двигателя</td>
+                <td>Бензиновый / Гибридный</td>
+            </tr>
+            <tr>
+                <td>Расход топлива</td>
+                <td>9.5 л/100 км (смешанный цикл)</td>
+            </tr>
+            <tr>
+                <td>Тип КПП</td>
+                <td>Автоматическая</td>
+            </tr>
+            <tr>
+                <td>Количество передач</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Габариты (Д×Ш×В)</td>
+                <td>5235 × 1900 × 1460 мм</td>
+            </tr>
+            <tr>
+                <td>Объем багажника</td>
+                <td>480 л</td>
+            </tr>
+            <tr>
+                <td>Разгон до 100 км/ч</td>
+                <td>5.0 с</td>
+            </tr>
+            <tr>
+                <td>Максимальная скорость</td>
+                <td>250 км/ч (электронное ограничение)</td>
+            </tr>
+            <tr>
+                <td>Начальная цена</td>
+                <td>от 6 800 000 руб.</td>
+            </tr>
+            <tr>
+                <td>Гарантийный срок</td>
+                <td>4 года / 100 000 км</td>
+            </tr>
+        </table>
+        
+        <details>
+            <summary>Системы безопасности</summary>
+            <p>ABS, ESP, 10 подушек безопасности, система мониторинга слепых зон, адаптивный круиз-контроль, система предотвращения столкновений, камера кругового обзора, система распознавания дорожных знаков, ассистент движения по полосе, мониторинг усталости водителя.</p>
+        </details>
+        
+        <div class="progress-container">
+            <p>Рейтинг безопасности Euro NCAP:</p>
+            <progress value="91" max="100">91%</progress>
+            <span class="progress-value">91%</span>
+        </div>
+        
+        <div class="mini-table">
+            <div>Wi-Fi: Да</div>
+            <div>Bluetooth: Да</div>
+            <div>Тормозная система: Дисковые вентилируемые</div>
+            <div>Системы предотвращения столкновений: Да</div>
+        </div>
+        
+        <aside>
+            <h3>Интересный факт</h3>
+            <p>Lexus LS стал первым автомобилем премиум-класса, в котором была применена система активной шумоизоляции. Специальные динамики создают звуковые волны, противоположные шуму двигателя и дороги, что делает салон невероятно тихим даже на высоких скоростях. Кроме того, в салоне используются традиционные японские материалы и техники отделки, такие как искусство кирико - резьба по стеклу.</p>
+        </aside>
+        
+        <blockquote>
+            "Lexus LS 500 устанавливает новые стандарты комфорта в классе люксовых седанов. Плавность хода и уровень шумоизоляции впечатляют, а современные технологии делают каждую поездку безопасной и приятной. Это автомобиль, который понимает и предвосхищает потребности водителя и пассажиров." - Автоэксперт "За рулем"
+        </blockquote>
+        
+        <details>
+            <summary>Дополнительная информация</summary>
+            <p>Дата выпуска модели: <time datetime="2017-01-01">январь 2017</time></p>
+            <p>Объем двигателя: 3.5 л V6 с двойным турбонаддувом</p>
+            <p>Мощность: 421 л.с. при 6000 об/мин</p>
+            <p>Крутящий момент: 600 Н·м при 1600-4800 об/мин</p>
+        </details>
+    </section>
+    
+    <section id="rolls-royce">
+        <h2>Rolls-Royce Ghost</h2>
+        
+        <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/2022_Rolls-Royce_Ghost_Black_Badge_in_Arctic_White%2C_front_left.jpg/1920px-2022_Rolls-Royce_Ghost_Black_Badge_in_Arctic_White%2C_front_left.jpg" alt="Rolls-Royce Ghost">
+            <figcaption>Rolls-Royce Ghost - вершина британской автомобильной роскоши</figcaption>
+        </figure>
+        
+        <table>
+            <tr>
+                <th>Характеристика</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Тип двигателя</td>
+                <td>Бензиновый</td>
+            </tr>
+            <tr>
+                <td>Расход топлива</td>
+                <td>15.0 л/100 км (смешанный цикл)</td>
+            </tr>
+            <tr>
+                <td>Тип КПП</td>
+                <td>Автоматическая</td>
+            </tr>
+            <tr>
+                <td>Количество передач</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Габариты (Д×Ш×В)</td>
+                <td>5546 × 2148 × 1571 мм</td>
+            </tr>
+            <tr>
+                <td>Объем багажника</td>
+                <td>490 л</td>
+            </tr>
+            <tr>
+                <td>Разгон до 100 км/ч</td>
+                <td>4.8 с</td>
+            </tr>
+            <tr>
+                <td>Максимальная скорость</td>
+                <td>250 км/ч (электронное ограничение)</td>
+            </tr>
+            <tr>
+                <td>Начальная цена</td>
+                <td>от 25 000 000 руб.</td>
+            </tr>
+            <tr>
+                <td>Гарантийный срок</td>
+                <td>4 года / неограниченный пробег</td>
+            </tr>
+        </table>
+        
+        <details>
+            <summary>Системы безопасности</summary>
+            <p>ABS, ESP, 10 подушек безопасности, система ночного видения, адаптивный круиз-контроль, система предотвращения столкновений, камера кругового обзора, система распознавания пешеходов, ассистент движения по полосе, мониторинг слепых зон, помощь при парковке, система предупреждения о пересечении линии.</p>
+        </details>
+        
+        <div class="progress-container">
+            <p>Рейтинг безопасности Euro NCAP:</p>
+            <progress value="88" max="100">88%</progress>
+            <span class="progress-value">88%</span>
+        </div>
+        
+        <div class="mini-table">
+            <div>Wi-Fi: Да</div>
+            <div>Bluetooth: Да</div>
+            <div>Тормозная система: Дисковые вентилируемые</div>
+            <div>Системы предотвращения столкновений: Да</div>
+        </div>
+        
+        <aside>
+            <h3>Интересный факт</h3>
+            <p>Rolls-Royce Ghost оснащен системой "Planar Suspension", которая использует камеры для сканирования дороги впереди и заранее настраивает подвеску для максимального комфорта. Эта система была разработана после более чем 10 000 часов тестирования на различных дорожных покрытиях. Каждый Ghost проходит более 2000 индивидуальных проверок качества, а на сборку салона уходит не менее 20 дней.</p>
+        </aside>
+        
+        <blockquote>
+            "Rolls-Royce Ghost - это не просто автомобиль, это произведение искусства на колесах. Уровень роскоши, внимания к деталям и комфорта не имеет аналогов в автомобильном мире. Поездка в Ghost сравнима с полетом на частном самолете. Это автомобиль, который переопределяет понятие роскоши и комфорта." - Автомобильный критик Forbes
+        </blockquote>
+        
+        <details>
+            <summary>Дополнительная информация</summary>
+            <p>Дата выпуска модели: <time datetime="2020-09-01">сентябрь 2020</time></p>
+            <p>Объем двигателя: 6.75 л V12 с двойным турбонаддувом</p>
+            <p>Мощность: 571 л.с. при 5000 об/мин</p>
+            <p>Крутящий момент: 850 Н·м при 1600 об/мин</p>
+        </details>
+    </section>
+    
+    <section id="comparison">
+        <h2>Сравнительная таблица характеристик</h2>
+        
+        <table>
+            <tr>
+                <th>Характеристика</th>
+                <th>Aston Martin DB11</th>
+                <th>Lexus LS 500</th>
+                <th>Rolls-Royce Ghost</th>
+            </tr>
+            <tr>
+                <td>Тип двигателя</td>
+                <td>Бензиновый</td>
+                <td>Бензиновый / Гибридный</td>
+                <td>Бензиновый</td>
+            </tr>
+            <tr>
+                <td>Расход топлива</td>
+                <td>12.1 л/100 км</td>
+                <td>9.5 л/100 км</td>
+                <td>15.0 л/100 км</td>
+            </tr>
+            <tr>
+                <td>Тип КПП</td>
+                <td>Автоматическая</td>
+                <td>Автоматическая</td>
+                <td>Автоматическая</td>
+            </tr>
+            <tr>
+                <td>Количество передач</td>
+                <td>8</td>
+                <td>10</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Габариты (Д×Ш×В)</td>
+                <td>4739×1940×1279 мм</td>
+                <td>5235×1900×1460 мм</td>
+                <td>5546×2148×1571 мм</td>
+            </tr>
+            <tr>
+                <td>Объем багажника</td>
+                <td>270 л</td>
+                <td>480 л</td>
+                <td>490 л</td>
+            </tr>
+            <tr>
+                <td>Разгон до 100 км/ч</td>
+                <td>3.9 с</td>
+                <td>5.0 с</td>
+                <td>4.8 с</td>
+            </tr>
+            <tr>
+                <td>Максимальная скорость</td>
+                <td>301 км/ч</td>
+                <td>250 км/ч</td>
+                <td>250 км/ч</td>
+            </tr>
+            <tr>
+                <td>Начальная цена</td>
+                <td>12 500 000 руб.</td>
+                <td>6 800 000 руб.</td>
+                <td>25 000 000 руб.</td>
+            </tr>
+            <tr>
+                <td>Гарантийный срок</td>
+                <td>3 года / неогр.</td>
+                <td>4 года / 100 000 км</td>
+                <td>4 года / неогр.</td>
+            </tr>
+            <tr>
+                <td>Рейтинг безопасности</td>
+                <td>85%</td>
+                <td>91%</td>
+                <td>88%</td>
+            </tr>
+            <tr>
+                <td>Wi-Fi / Bluetooth</td>
+                <td>Да / Да</td>
+                <td>Да / Да</td>
+                <td>Да / Да</td>
+            </tr>
+            <tr>
+                <td>Тормозная система</td>
+                <td>Дисковые</td>
+                <td>Дисковые</td>
+                <td>Дисковые</td>
+            </tr>
+        </table>
+        
+        <aside>
+            <h3>Выводы</h3>
+            <p>Каждый из этих автомобилей представляет собой вершину инженерной мысли в своем сегменте. <span class="brand-highlight">Aston Martin DB11</span> предлагает спортивный характер и выдающуюся динамику. <span class="brand-highlight">Lexus LS 500</span> сочетает в себе передовые технологии, надежность и исключительный комфорт. <span class="brand-highlight">Rolls-Royce Ghost</span> устанавливает абсолютный стандарт роскоши и престижа в автомобильном мире.</p>
+        </aside>
+    </section>
+    
+    <footer>
+        <p>© 2025 Сравнительная таблица автомобилей премиум-класса</p>
+        <p>Информация представлена для ознакомления и может отличаться от актуальных данных производителей.</p>
+    </footer>
+</body>
+</html>
